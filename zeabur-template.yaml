@@ -1,0 +1,212 @@
+apiVersion: zeabur.com/v1
+kind: Template
+metadata:
+  name: Twenty CRM
+spec:
+  description: Open-source CRM with separated API server and background worker on Zeabur.
+  icon: https://twenty.com/images/core/logo.svg
+  tags:
+    - CRM
+    - Tool
+  variables:
+    - key: PUBLIC_DOMAIN
+      type: DOMAIN
+      name: Domain
+      description: Public HTTPS URL for Twenty (e.g. crm.example.com)
+    - key: ENCRYPTION_KEY
+      type: STRING
+      name: Encryption Key
+      description: Run `openssl rand -base64 32` and paste the result
+    - key: DOCKER_IMAGE
+      type: STRING
+      name: Docker Image
+      description: GHCR image from zeabur-docker workflow (e.g. ghcr.io/your-org/twenty:main)
+  readme: |-
+    # Twenty CRM on Zeabur
+
+    This template deploys Twenty with **four separate services**:
+
+    - **postgresql** — database
+    - **redis** — cache and job queue
+    - **server** — NestJS API + frontend UI (port 3000)
+    - **worker** — background jobs (same image, different command)
+
+    ## Before deploying
+
+    1. Push this repo to GitHub and enable **Packages** write for Actions.
+    2. Run the **Zeabur Docker Build** workflow (or push to `main`) to publish `ghcr.io/<owner>/twenty:main`.
+    3. Set **DOCKER_IMAGE** to that GHCR tag.
+    4. Generate **ENCRYPTION_KEY** with `openssl rand -base64 32`.
+
+    ## After deploying
+
+    1. Open `https://<your-domain>/healthz` — expect HTTP 200.
+    2. Open `https://<your-domain>` — Twenty sign-in page.
+    3. Check **worker** logs for Redis/DB connection errors.
+
+    See `packages/twenty-docker/ZEABUR.md` in the repository for manual setup and troubleshooting.
+  services:
+    - name: postgresql
+      icon: https://raw.githubusercontent.com/zeabur/service-icons/main/marketplace/postgresql.svg
+      template: PREBUILT_V2
+      spec:
+        source:
+          image: postgres:16
+        ports:
+          - id: database
+            port: 5432
+            type: TCP
+        volumes:
+          - id: data
+            dir: /var/lib/postgresql/data
+        env:
+          POSTGRES_USER:
+            default: postgres
+            expose: true
+          POSTGRES_PASSWORD:
+            default: ${PASSWORD}
+            expose: true
+          POSTGRES_DB:
+            default: default
+            expose: true
+          POSTGRES_HOST:
+            default: ${CONTAINER_HOSTNAME}
+            expose: true
+            readonly: true
+          POSTGRES_PORT:
+            default: ${DATABASE_PORT}
+            expose: true
+            readonly: true
+          POSTGRES_USERNAME:
+            default: ${POSTGRES_USER}
+            expose: true
+            readonly: true
+          POSTGRES_DATABASE:
+            default: ${POSTGRES_DB}
+            expose: true
+            readonly: true
+          POSTGRES_CONNECTION_STRING:
+            default: postgresql://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DATABASE}
+            expose: true
+            readonly: true
+
+    - name: redis
+      icon: https://raw.githubusercontent.com/zeabur/service-icons/main/marketplace/redis.svg
+      template: PREBUILT_V2
+      spec:
+        source:
+          image: redis:7-alpine
+        ports:
+          - id: database
+            port: 6379
+            type: TCP
+        env:
+          REDIS_ARGS:
+            default: --maxmemory-policy noeviction
+          REDIS_HOST:
+            default: ${CONTAINER_HOSTNAME}
+            expose: true
+            readonly: true
+          REDIS_PORT:
+            default: ${DATABASE_PORT}
+            expose: true
+            readonly: true
+          REDIS_PASSWORD:
+            default: ${PASSWORD}
+            expose: true
+          REDIS_CONNECTION_STRING:
+            default: redis://:${REDIS_PASSWORD}@${REDIS_HOST}:${REDIS_PORT}
+            expose: true
+            readonly: true
+          REDIS_URI:
+            default: ${REDIS_CONNECTION_STRING}
+            expose: true
+            readonly: true
+
+    - name: server
+      icon: https://twenty.com/images/core/logo.svg
+      template: PREBUILT
+      domainKey: PUBLIC_DOMAIN
+      dependencies:
+        - postgresql
+        - redis
+      spec:
+        source:
+          image: ${DOCKER_IMAGE}
+        ports:
+          - id: web
+            port: 3000
+            type: HTTP
+        volumes:
+          - id: storage
+            dir: /app/packages/twenty-server/.local-storage
+        env:
+          NODE_PORT:
+            default: "3000"
+          PORT:
+            default: "3000"
+          PG_DATABASE_URL:
+            default: postgres://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DATABASE}
+          REDIS_URL:
+            default: ${REDIS_URI}
+          SERVER_URL:
+            default: ${ZEABUR_WEB_URL}
+            expose: true
+          ENCRYPTION_KEY:
+            default: ${ENCRYPTION_KEY}
+          STORAGE_TYPE:
+            default: local
+
+    - name: worker
+      icon: https://twenty.com/images/core/logo.svg
+      template: PREBUILT
+      dependencies:
+        - postgresql
+        - redis
+        - server
+      spec:
+        source:
+          image: ${DOCKER_IMAGE}
+        command:
+          - yarn
+          - worker:prod
+        env:
+          PG_DATABASE_URL:
+            default: postgres://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DATABASE}
+          REDIS_URL:
+            default: ${REDIS_URI}
+          SERVER_URL:
+            default: ${SERVER_URL}
+          ENCRYPTION_KEY:
+            default: ${ENCRYPTION_KEY}
+          STORAGE_TYPE:
+            default: local
+          DISABLE_DB_MIGRATIONS:
+            default: "true"
+          DISABLE_CRON_JOBS_REGISTRATION:
+            default: "true"
+
+localization:
+  zh-TW:
+    description: 在 Zeabur 上部署開源 CRM Twenty，API 與背景 Worker 分離運行。
+    variables:
+      - key: PUBLIC_DOMAIN
+        type: DOMAIN
+        name: 網域
+        description: Twenty 的公開 HTTPS 網址（例如 crm.example.com）
+      - key: ENCRYPTION_KEY
+        type: STRING
+        name: 加密金鑰
+        description: 執行 `openssl rand -base64 32` 並貼上結果
+      - key: DOCKER_IMAGE
+        type: STRING
+        name: Docker 映像
+        description: zeabur-docker workflow 產出的 GHCR 映像（例如 ghcr.io/your-org/twenty:main）
+    readme: |-
+      # Zeabur 上的 Twenty CRM
+
+      此模板會部署 **四個獨立服務**：PostgreSQL、Redis、Server（API + 前端）、Worker（背景任務）。
+
+      部署前請先執行 GitHub Actions **Zeabur Docker Build** 將映像推送到 GHCR，並設定 DOCKER_IMAGE 與 ENCRYPTION_KEY。
+
+      詳細步驟請見 repo 內 `packages/twenty-docker/ZEABUR.md`。

@@ -1,0 +1,15 @@
+# syntax=docker/dockerfile:1.7-labs
+# Zeabur service name: worker
+# Build context MUST be the repository root (leave Root Directory empty).
+#
+# Same production image as `server`, but runs the BullMQ queue worker.
+# Prefer deploying from the same GHCR image as server to avoid a second full build.
+
+include {
+  path = "packages/twenty-docker/twenty/Dockerfile"
+}
+
+FROM twenty
+
+ENTRYPOINT ["/app/entrypoint.sh"]
+CMD ["yarn", "worker:prod"]

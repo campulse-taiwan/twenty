@@ -1,0 +1,12 @@
+# syntax=docker/dockerfile:1.7-labs
+# Zeabur service name: server
+# Build context MUST be the repository root (leave Root Directory empty).
+#
+# Selects the production `twenty` target (NestJS API + bundled frontend static files)
+# from the monorepo Dockerfile. Do not build the default final stage `twenty-app-dev`.
+
+include {
+  path = "packages/twenty-docker/twenty/Dockerfile"
+}
+
+FROM twenty
