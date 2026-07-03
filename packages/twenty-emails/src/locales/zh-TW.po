@@ -1,22 +1,23 @@
+#
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2025-02-01 18:53+0100\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: @lingui/cli\n"
-"Language: zh\n"
 "Project-Id-Version: cf448e737e0d6d7b78742f963d761c61\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-01 18:53+0100\n"
 "PO-Revision-Date: 2025-01-01 00:00\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Traditional\n"
+"Language: zh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Crowdin-Project: cf448e737e0d6d7b78742f963d761c61\n"
-"X-Crowdin-Project-ID: 1\n"
-"X-Crowdin-Language: zh-TW\n"
 "X-Crowdin-File: /packages/twenty-emails/src/locales/en.po\n"
 "X-Crowdin-File-ID: 27\n"
+"X-Crowdin-Language: zh-TW\n"
+"X-Crowdin-Project: cf448e737e0d6d7b78742f963d761c61\n"
+"X-Crowdin-Project-ID: 1\n"
+"X-Generator: @lingui/cli\n"
 
 #. js-lingui-explicit-id
 #: src/emails/warn-suspended-workspace.email.tsx
@@ -28,7 +29,7 @@ msgstr "暫停的工作區"
 #: src/emails/password-update-notify.email.tsx
 #: src/emails/clean-suspended-workspace.email.tsx
 msgid "Dear {userName},"
-msgstr "親愛的 {userName},"
+msgstr "親愛的{userName}，"
 
 #. js-lingui-explicit-id
 #: src/emails/warn-suspended-workspace.email.tsx
@@ -39,18 +40,24 @@ msgstr "您好,"
 
 #. js-lingui-explicit-id
 #: src/emails/warn-suspended-workspace.email.tsx
-msgid "It appears that your workspace <0>{workspaceDisplayName}</0> has been suspended for {daysSinceInactive} days."
-msgstr "您的工作區 <0>{workspaceDisplayName}</0> 已被暫停 {daysSinceInactive} 天。"
+msgid ""
+"It appears that your workspace <0>{workspaceDisplayName}</0> has been "
+"suspended for {daysSinceInactive} days."
+msgstr "您的工作區 <0>{workspaceDisplayName}</0> 似乎已暫停 {daysSinceInactive} 天。"
 
 #. js-lingui-explicit-id
 #: src/emails/warn-suspended-workspace.email.tsx
-msgid "The workspace will be deactivated in {remainingDays} {dayOrDays}, and all its data will be deleted."
-msgstr "工作區將在 {remainingDays} {dayOrDays} 後停用，所有數據將被刪除。"
+msgid ""
+"The workspace will be deactivated in {remainingDays} {dayOrDays}, and all "
+"its data will be deleted."
+msgstr "{remainingDays} {dayOrDays} 中的工作區將會停用，並且其所有資料都將被刪除。"
 
 #. js-lingui-explicit-id
 #: src/emails/warn-suspended-workspace.email.tsx
-msgid "If you wish to continue using Twenty, please update your subscription within the next {remainingDays} {dayOrDays}."
-msgstr "如果您希望繼續使用 Twenty，請在接下來的 {remainingDays} {dayOrDays} 內更新您的訂閱。"
+msgid ""
+"If you wish to continue using Twenty, please update your subscription within"
+" the next {remainingDays} {dayOrDays}."
+msgstr "如果您希望繼續使用 20，請在下一個 {remainingDays} {dayOrDays} 內更新您的訂閱。"
 
 #. js-lingui-explicit-id
 #: src/emails/warn-suspended-workspace.email.tsx
@@ -65,8 +72,13 @@ msgstr "驗證域"
 
 #. js-lingui-explicit-id
 #: src/emails/validate-approved-access-domain.email.tsx
-msgid "{senderName} (<0>{senderEmail}</0>): Please validate this domain to allow users with <1>@{domain}</1> email addresses to join your workspace without requiring an invitation."
-msgstr "{senderName} (<0>{senderEmail}</0>): 請驗證此網域，以允許擁有<1>@{domain}</1>電子郵件地址的使用者在不需要邀請的情況下加入您的工作區。"
+msgid ""
+"{senderName} (<0>{senderEmail}</0>): Please validate this domain to allow "
+"users with <1>@{domain}</1> email addresses to join your workspace without "
+"requiring an invitation."
+msgstr ""
+"{senderName} (<0>{senderEmail}</0>)：請驗證此網域，以允許具有 <1>@{domain}</1> "
+"電子郵件地址的使用者無需邀請即可加入您的工作區。"
 
 #. js-lingui-explicit-id
 #: src/emails/test.email.tsx
@@ -80,8 +92,11 @@ msgstr "加入您的團隊，使用 Twenty"
 
 #. js-lingui-explicit-id
 #: src/emails/send-invite-link.email.tsx
-msgid "{senderName} (<0>{senderEmail}</0>) has invited you to join a workspace called <1>{workspaceName}</1>."
-msgstr "{senderName} (<0>{senderEmail}</0>) 已邀請您加入一個名為<1>{workspaceName}</1>的工作區。"
+msgid ""
+"{senderName} (<0>{senderEmail}</0>) has invited you to join a workspace "
+"called <1>{workspaceName}</1>."
+msgstr ""
+"{senderName} (<0>{senderEmail}</0>) 邀請您加入名為 <1>{workspaceName}</1> 的工作區。"
 
 #. js-lingui-explicit-id
 #: src/emails/send-invite-link.email.tsx
@@ -91,7 +106,7 @@ msgstr "接受邀請"
 #. js-lingui-explicit-id
 #: src/emails/send-email-verification-link.email.tsx
 msgid "Confirm your new email address"
-msgstr ""
+msgstr "確認您的新電子郵件地址"
 
 #. js-lingui-explicit-id
 #: src/emails/send-email-verification-link.email.tsx
@@ -101,7 +116,7 @@ msgstr "確認您的電子郵件地址"
 #. js-lingui-explicit-id
 #: src/emails/send-email-verification-link.email.tsx
 msgid "Confirm new email"
-msgstr ""
+msgstr "確認新電子郵件"
 
 #. js-lingui-explicit-id
 #: src/emails/send-email-verification-link.email.tsx
@@ -115,12 +130,16 @@ msgstr "密碼已更新"
 
 #. js-lingui-explicit-id
 #: src/emails/password-update-notify.email.tsx
-msgid "This is a confirmation that password for your account ({email}) was successfully changed on {formattedDate}."
-msgstr "這是確認您的帳戶（{email}）的密碼已於 {formattedDate} 成功更改。"
+msgid ""
+"This is a confirmation that password for your account ({email}) was "
+"successfully changed on {formattedDate}."
+msgstr "這是確認您的帳戶 ({email}) 密碼已在 {formattedDate} 上成功變更。"
 
 #. js-lingui-explicit-id
 #: src/emails/password-update-notify.email.tsx
-msgid "If you did not initiate this change, please contact your workspace owner immediately."
+msgid ""
+"If you did not initiate this change, please contact your workspace owner "
+"immediately."
 msgstr "如果您未發起此更改，請立即聯繫您的工作區擁有者。"
 
 #. js-lingui-explicit-id
@@ -150,8 +169,10 @@ msgstr "設置"
 
 #. js-lingui-explicit-id
 #: src/emails/password-reset-link.email.tsx
-msgid "This link is only valid for the next {duration}. If the link does not work, you can use the login verification link directly:"
-msgstr "此鏈接僅在接下來的 {duration} 內有效。如果鏈接無效，您可以直接使用登錄驗證鏈接："
+msgid ""
+"This link is only valid for the next {duration}. If the link does not work, "
+"you can use the login verification link directly:"
+msgstr "此連結僅對下一個{duration}有效。如果連結失效，您可以直接使用登入驗證連結："
 
 #. js-lingui-explicit-id
 #: src/emails/clean-suspended-workspace.email.tsx
@@ -160,8 +181,11 @@ msgstr "已刪除工作區"
 
 #. js-lingui-explicit-id
 #: src/emails/clean-suspended-workspace.email.tsx
-msgid "Your workspace <0>{workspaceDisplayName}</0> has been deleted as your subscription expired {daysSinceInactive} days ago."
-msgstr "由於您的訂閱已於 {daysSinceInactive} 天前過期，您的工作區 <0>{workspaceDisplayName}</0> 已被刪除。"
+msgid ""
+"Your workspace <0>{workspaceDisplayName}</0> has been deleted as your "
+"subscription expired {daysSinceInactive} days ago."
+msgstr ""
+"由於您的訂閱 {daysSinceInactive} 天前已過期，您的工作區 <0>{workspaceDisplayName}</0> 已被刪除。"
 
 #. js-lingui-explicit-id
 #: src/emails/clean-suspended-workspace.email.tsx
@@ -181,12 +205,14 @@ msgstr "創建新的工作區"
 #. js-lingui-explicit-id
 #: src/components/WhatIsTwenty.tsx
 msgid "What is Twenty?"
-msgstr "什麼是Twenty？"
+msgstr "什麼是二十？"
 
 #. js-lingui-explicit-id
 #: src/components/WhatIsTwenty.tsx
-msgid "It's a CRM, a software to help businesses manage their customer data and relationships efficiently."
-msgstr "它是一個CRM，是一款幫助企業有效管理客戶資料和關係的軟件。"
+msgid ""
+"It's a CRM, a software to help businesses manage their customer data and "
+"relationships efficiently."
+msgstr "它是一款 CRM，一款幫助企業有效管理客戶資料和關係的軟體。"
 
 #. js-lingui-explicit-id
 #: src/components/Footer.tsx
@@ -196,17 +222,17 @@ msgstr "網站"
 #. js-lingui-explicit-id
 #: src/components/Footer.tsx
 msgid "Visit Twenty's website"
-msgstr "訪問Twenty的網站"
+msgstr "造訪二十的網站"
 
 #. js-lingui-explicit-id
 #: src/components/Footer.tsx
 msgid "Github"
-msgstr "Github"
+msgstr "吉圖布"
 
 #. js-lingui-explicit-id
 #: src/components/Footer.tsx
 msgid "Visit Twenty's GitHub repository"
-msgstr "訪問Twenty的GitHub 儲存庫"
+msgstr "存取 Twenty 的 GitHub 儲存庫"
 
 #. js-lingui-explicit-id
 #: src/components/Footer.tsx
@@ -216,7 +242,7 @@ msgstr "用戶指南"
 #. js-lingui-explicit-id
 #: src/components/Footer.tsx
 msgid "Read Twenty's user guide"
-msgstr "閱讀Twenty的用戶指南"
+msgstr "閱讀二十的使用者指南"
 
 #. js-lingui-explicit-id
 #: src/components/Footer.tsx
@@ -226,12 +252,12 @@ msgstr "開發人員"
 #. js-lingui-explicit-id
 #: src/components/Footer.tsx
 msgid "Visit Twenty's developer documentation"
-msgstr "訪問Twenty的開發者文檔"
+msgstr "訪問 Twenty 的開發者文檔"
 
 #. js-lingui-explicit-id
 #: src/components/Footer.tsx
 msgid "Twenty.com, Public Benefit Corporation"
-msgstr "Twenty.com, 公益公司"
+msgstr "Twenty.com，公益公司"
 
 #. js-lingui-explicit-id
 #: src/components/Footer.tsx
