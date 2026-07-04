@@ -138,7 +138,9 @@ def extract_labels() -> list[str]:
 
 
 def escape_ts_string(value: str) -> str:
-    return value.replace("\\", "\\\\").replace("`", "\\`")
+    # Single-quoted literal: ${...} stays literal text (no template interpolation),
+    # so only backslashes and single quotes need escaping.
+    return value.replace("\\", "\\\\").replace("'", "\\'")
 
 
 def generate_file(labels: list[str]) -> None:
@@ -151,7 +153,9 @@ def generate_file(labels: list[str]) -> None:
 
     for label in labels:
         translation = MANUAL_TRANSLATIONS.get(label, label)
-        lines.append(f"  `{escape_ts_string(label)}`: `{escape_ts_string(translation)}`,")
+        key = escape_ts_string(label)
+        value = escape_ts_string(translation)
+        lines.append(f"  '{key}': '{value}',")
 
     lines.extend(["};", ""])
     OUTPUT_FILE.write_text("\n".join(lines), encoding="utf-8")
