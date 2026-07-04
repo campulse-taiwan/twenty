@@ -81,13 +81,9 @@ Copy internal connection strings from each service’s **Connect** tab, or use Z
    ZBPACK_DOCKERFILE_PATH=Dockerfile.server
    ```
 
-   Fallback (BuildKit include unsupported):
-
-   ```
-   ZBPACK_DOCKERFILE_PATH=packages/twenty-docker/twenty/Dockerfile
-   ```
-
-   and set **Docker Build Target** to `twenty` if available.
+   `Dockerfile.server` is a standalone multi-stage file (final stage `twenty`).
+   Do **not** point Zeabur at `packages/twenty-docker/twenty/Dockerfile` directly —
+   its default final stage is `twenty-app-dev` (local dev image).
 
 5. **Networking** → bind domain → set `SERVER_URL=https://your-domain`
 
@@ -161,7 +157,7 @@ After all services are running:
 | Memory | Frontend build needs **8 GB+** RAM on the builder |
 | Avoid double build | Use GHCR image for both Server and Worker |
 | Custom zh-TW | Included when building from your fork; run `lingui compile` before commit |
-| Include syntax | `Dockerfile.server` uses BuildKit `include`; if Zeabur fails, use `ZBPACK_DOCKERFILE_PATH` + target `twenty` |
+| Wrong image (dev all-in-one) | Use `Dockerfile.server` (final stage `twenty`), not the monorepo Dockerfile default |
 
 ---
 
