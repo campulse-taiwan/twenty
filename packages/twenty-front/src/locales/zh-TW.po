@@ -1640,7 +1640,7 @@ msgstr "總結圖"
 #: src/modules/settings/hooks/useSettingsNavigationItems.tsx
 #: src/modules/settings/admin-panel/components/SettingsAdminContent.tsx
 msgid "AI"
-msgstr "人工智慧"
+msgstr "AI"
 
 #. js-lingui-id: oI7HO0
 #: src/modules/workflow/workflow-run/observability/WorkflowRunStepLogsAiAgentDetail.tsx
@@ -2235,7 +2235,7 @@ msgstr "API 值"
 #: src/modules/settings/hooks/useSettingsNavigationItems.tsx
 #: src/modules/settings/developers/components/SettingsDevelopersWebhookForm.tsx
 msgid "APIs & Webhooks"
-msgstr "API 和 Webhook"
+msgstr "API 與 Webhook"
 
 #. js-lingui-id: 0UMxlw
 #: src/modules/settings/experience/components/NumberFormatSelect.tsx
@@ -2943,7 +2943,7 @@ msgstr "本月的 {startOrdinal} 和 {endOrdinal} 之間"
 #: src/modules/settings/hooks/useSettingsNavigationItems.tsx
 #: src/modules/settings/admin-panel/components/SettingsAdminWorkspaceBillingContent.tsx
 msgid "Billing"
-msgstr "計費"
+msgstr "帳單"
 
 #. js-lingui-id: dSjFxR
 #: src/pages/settings/enterprise/SettingsEnterprise.tsx
@@ -3220,7 +3220,7 @@ msgstr "日曆檢視"
 #: src/pages/settings/accounts/SettingsAccountsCalendars.tsx
 #: src/modules/settings/hooks/useSettingsNavigationItems.tsx
 msgid "Calendars"
-msgstr "日曆"
+msgstr "行事曆"
 
 #. js-lingui-id: qIlodj
 #: src/modules/object-record/record-field/ui/form-types/components/FormPhoneFieldInput.tsx
@@ -5129,7 +5129,7 @@ msgstr "數據模型"
 #. js-lingui-id: 4BuYDo
 #: src/modules/settings/roles/role-permissions/permission-flags/hooks/useSettingsRolePermissionFlagConfig.ts
 msgid "Data Model"
-msgstr "數據模型"
+msgstr "資料模型"
 
 #. js-lingui-id: zAfYtx
 #: src/utils/title-utils.ts
@@ -7293,7 +7293,7 @@ msgstr "到期時間：{dateDiff}"
 #. js-lingui-id: GS+Mus
 #: src/modules/object-record/record-index/export/hooks/useRecordIndexExportRecords.ts
 msgid "Export"
-msgstr "導出"
+msgstr "匯出"
 
 #. js-lingui-id: Whzf47
 #: src/modules/object-record/record-index/export/hooks/useRecordIndexExportRecords.ts
@@ -8129,7 +8129,7 @@ msgstr "功能 - 設定"
 #: src/modules/page-layout/widgets/fields/hooks/useFieldsWidgetGroupsForDisplay.ts
 #: src/modules/keyboard-shortcut-menu/components/KeyboardShortcutMenuOpenContent.tsx
 msgid "General"
-msgstr "常規"
+msgstr "一般"
 
 #. js-lingui-id: p+rXSW
 #: src/utils/title-utils.ts
@@ -8214,7 +8214,7 @@ msgstr "前往草稿"
 #: src/modules/views/view-picker/components/ViewPickerCreateButton.tsx
 #: src/modules/object-record/record-table/empty-state/components/RecordTableEmptyStateRemote.tsx
 msgid "Go to Settings"
-msgstr "前往設置"
+msgstr "前往設定"
 
 #. js-lingui-id: FYlHHU
 #: src/modules/settings/data-model/fields/forms/select/components/SettingsDataModelFieldSelectFormOptionRow.tsx
@@ -8802,7 +8802,7 @@ msgstr "在此工作區禁用模仿"
 #. js-lingui-id: l3s5ri
 #: src/modules/settings/accounts/components/SettingsAccountsMessageChannelDetails.tsx
 msgid "Import"
-msgstr "導入"
+msgstr "匯入"
 
 #. js-lingui-id: sqOGcv
 #: src/modules/settings/accounts/components/SettingsAccountsMessageFolderCard.tsx
@@ -14025,7 +14025,7 @@ msgstr "星期六"
 #. js-lingui-id: tfDRzk
 #: src/modules/settings/components/SaveAndCancelButtons/SaveButton.tsx
 msgid "Save"
-msgstr "保存"
+msgstr "儲存"
 
 #. js-lingui-id: apLRCm
 #: src/modules/views/components/UpdateViewButtonGroup.tsx
@@ -14095,7 +14095,7 @@ msgstr "軟體開發工具包"
 #: src/modules/command-menu-item/engine-command/constants/EngineComponentKeyHeadlessComponentMap.tsx
 #: src/modules/command-menu-item/engine-command/constants/EngineComponentKeyHeadlessComponentMap.tsx
 msgid "Search"
-msgstr "搜索"
+msgstr "搜尋"
 
 #. js-lingui-id: g2dQp/
 #: src/modules/settings/roles/role-permissions/object-level-permissions/record-level-permissions/components/SettingsRolePermissionsObjectLevelRecordLevelPermissionMeValueSelect.tsx
@@ -14692,7 +14692,7 @@ msgstr "傳送電子郵件"
 #: src/modules/settings/roles/role-permissions/permission-flags/hooks/useActionRolePermissionFlagConfig.ts
 #: src/modules/activities/emails/components/EmptyInboxPlaceholder.tsx
 msgid "Send Email"
-msgstr "發送電子郵件"
+msgstr "傳送電子郵件"
 
 #. js-lingui-id: CqsED8
 #: src/modules/settings/roles/role-permissions/permission-flags/hooks/useActionRolePermissionFlagConfig.ts
@@ -14848,7 +14848,7 @@ msgstr "正在設置您的數據庫..."
 #: src/modules/object-record/record-merge/hooks/useMergeRecordsContainerTabs.ts
 #: src/modules/navigation/components/NavigationDrawerOtherSection.tsx
 msgid "Settings"
-msgstr "設置"
+msgstr "設定"
 
 #. js-lingui-id: uXW4pg
 #: src/modules/settings/roles/role-permissions/permission-flags/components/SettingsRolePermissionsSettingsSection.tsx
@@ -17825,7 +17825,7 @@ msgstr "查看未共享"
 #. js-lingui-id: ecVcAx
 #: src/modules/command-menu-item/engine-command/constants/EngineComponentKeyHeadlessComponentMap.tsx
 msgid "View Previous AI Chats"
-msgstr "查看上一次的 AI 聊天"
+msgstr "查看先前的 AI 對話"
 
 #. js-lingui-id: hAAsm/
 #: src/modules/workflow/workflow-steps/workflow-actions/ai-agent-action/components/WorkflowEditActionAiAgent.tsx

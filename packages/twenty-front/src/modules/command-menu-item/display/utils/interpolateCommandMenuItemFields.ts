@@ -1,6 +1,26 @@
+import { i18n } from '@lingui/core';
+import { APP_LOCALES } from 'twenty-shared/translations';
 import { type CommandMenuContextApi, type Nullable } from 'twenty-shared/types';
-import { interpolateCommandMenuItemTemplate } from 'twenty-shared/utils';
+import {
+  interpolateCommandMenuItemTemplate,
+  isDefined,
+} from 'twenty-shared/utils';
+import { COMMAND_MENU_ITEM_LABEL_TRANSLATIONS_ZH_TW } from '@/command-menu-item/utils/command-menu-item-label-translations.zh-TW';
 import { type CommandMenuItemFieldsFragment } from '~/generated-metadata/graphql';
+
+const translateCommandMenuItemTemplate = (
+  label: Nullable<string>,
+): Nullable<string> => {
+  if (!isDefined(label)) {
+    return null;
+  }
+
+  if (i18n.locale === APP_LOCALES['zh-TW']) {
+    return COMMAND_MENU_ITEM_LABEL_TRANSLATIONS_ZH_TW[label] ?? label;
+  }
+
+  return label;
+};
 
 type InterpolatedCommandMenuItemFields = {
   iconKey: Nullable<string>;
@@ -17,14 +37,16 @@ export const interpolateCommandMenuItemFields = (
     context: commandMenuContextApi,
   });
 
+  const translatedLabel = translateCommandMenuItemTemplate(item.label);
+
   const label =
     interpolateCommandMenuItemTemplate({
-      label: item.label,
+      label: translatedLabel,
       context: commandMenuContextApi,
-    }) ?? item.label;
+    }) ?? translatedLabel;
 
   const shortLabel = interpolateCommandMenuItemTemplate({
-    label: item.shortLabel,
+    label: translateCommandMenuItemTemplate(item.shortLabel),
     context: commandMenuContextApi,
   });
 
